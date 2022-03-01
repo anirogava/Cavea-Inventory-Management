@@ -4,6 +4,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { ContentModule } from './content/content.module';
 import { ShellModule } from './shell/shell.module';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ShellModule } from './shell/shell.module';
     TooltipModule.forRoot(),
     ShellModule,
     AppRoutingModule,
+    ContentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

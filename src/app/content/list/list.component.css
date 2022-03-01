@@ -3,4 +3,9 @@
 }
 .btn {
   margin-top: 20px;
+  background-color: #cc3399 !important;
+  border-color: #cc3399 !important;
+}
+.nav-item {
+  background-color: #cc3399 !important;
 }

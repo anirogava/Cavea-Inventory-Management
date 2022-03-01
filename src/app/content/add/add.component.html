@@ -1,3 +1,12 @@
-<p>
-  add works!
-</p>
+<form>
+  <div class="col-auto">
+    <select [(ngModel)]="model.adress" name="select" class="form-select">
+      <option selected [ngValue]="adress.Choose">ადგილმდებარეობა:</option>
+      <option [ngValue]="adress.Main">მთავარი ოფისი</option>
+      <option [ngValue]="adress.Gallery">კავეა გალერია</option>
+      <option [ngValue]="adress.Mall">კავეა თბილისი მოლი</option>
+      <option [ngValue]="adress.EastPoint">კავეა ისთ ფოინთი</option>
+      <option [ngValue]="adress.CityMall">კავეა სითი მოლი</option>
+    </select>
+  </div>
+</form>
