@@ -10,6 +10,7 @@ import { CustomValidator } from '../custom.validator';
 })
 export class AddComponent implements OnInit{
 adress = Adress;
+formData = [];
 
 form: FormGroup = new FormGroup({});
 
@@ -37,6 +38,7 @@ this.form = this.fb.group({
 
   onSubmit(){
     localStorage.setItem('formdata',JSON.stringify(this.form.value))
+
   }
 
 

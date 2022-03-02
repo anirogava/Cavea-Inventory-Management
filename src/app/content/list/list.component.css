@@ -1,11 +1,10 @@
-.list1 {
-  margin-top: 50px;
-}
 .btn {
   margin-top: 20px;
   background-color: #cc3399 !important;
   border-color: #cc3399 !important;
+  margin-left: 20px;
 }
-.nav-item {
-  background-color: #cc3399 !important;
+.thead-light {
+  background-color: #385170 !important;
+  color: white !important;
 }
