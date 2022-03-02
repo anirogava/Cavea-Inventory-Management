@@ -7,3 +7,8 @@ export enum Adress{
   EastPoint = "კავეა ისთ ფოინთი",
   CityMall = "კავეა სითი მოლი"
   }
+  export interface inventory{
+   adress: 'string',
+   name:'string',
+   price:'number'
+  }
