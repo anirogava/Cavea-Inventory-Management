@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule, FormsModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [AddComponent, ListComponent]
 })

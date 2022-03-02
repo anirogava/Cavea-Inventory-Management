@@ -2,3 +2,10 @@
   background-color: #cc3399 !important;
   border-color: #cc3399 !important;
 }
+.form {
+  max-width: 350px;
+  margin: 0 auto;
+}
+.button1 {
+  margin-top: 10px;
+}

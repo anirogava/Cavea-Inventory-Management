@@ -1,12 +1,23 @@
-<form>
+
+<form class="form" [formGroup]="form">
+  <h2 class="title">დაამატეთ ნივთი</h2>
   <div class="col-auto">
-    <select [(ngModel)]="model.adress" name="select" class="form-select">
-      <option selected [ngValue]="adress.Choose">ადგილმდებარეობა:</option>
-      <option [ngValue]="adress.Main">მთავარი ოფისი</option>
-      <option [ngValue]="adress.Gallery">კავეა გალერია</option>
-      <option [ngValue]="adress.Mall">კავეა თბილისი მოლი</option>
-      <option [ngValue]="adress.EastPoint">კავეა ისთ ფოინთი</option>
-      <option [ngValue]="adress.CityMall">კავეა სითი მოლი</option>
+    <label for="status" class="col-sm-2 col-form-label">ადგილმდებარეობა:</label>
+    <select  name="form-select" class="form-select" formControlName="Adress">
+      <option [value]="adress.Main">მთავარი ოფისი</option>
+      <option [value]="adress.Gallery">კავეა გალერია</option>
+      <option [value]="adress.Mall">კავეა თბილისი მოლი</option>
+      <option [value]="adress.EastPoint">კავეა ისთ ფოინთი</option>
+      <option [value]="adress.CityMall">კავეა სითი მოლი</option>
     </select>
   </div>
+  <div class="form-group">
+    <label for="status" class="col-sm-2 col-form-label">ნივთის დასახელება:</label>
+    <input class="form-control" type="text" placeholder="" formControlName="name">
+  </div>
+  <label for="status" class="col-sm-2 col-form-label">ფასი(ლარებში):</label>
+  <div>
+      <input type="number" formControlName="number" id="number"[formGroup]="form" novalidate  >
+</div>
+<button type="button" class="btn btn-primary button1">დამატება</button>
 </form>

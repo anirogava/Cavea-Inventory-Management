@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Adress } from '../content.model';
+import { CustomValidator } from '../custom.validator';
 
 @Component({
   selector: 'app-add',
@@ -6,25 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-  model: choose = {
-    adress: Adress.Choose
-  };
 adress = Adress;
-  constructor() { }
 
+form: FormGroup = new FormGroup({});
+
+  constructor(private fb: FormBuilder) {{
+    this.form = fb.group({
+      number: ['', [CustomValidator.numeric]]
+    })
+  } }
+private buildForm(){
+this.form = this.fb.group({
+ name: [''],
+ Adress: Adress.null,
+ number: ['']
+});
+}
   ngOnInit() {
+   this.buildForm()
   }
 
 
 }
-interface choose {
-  adress: Adress;
-}
-enum Adress{
-Choose =  "ადგილმდებარეობა",
-Main = "მთავარი ოფისი",
-Gallery = "კავეა გალერია",
-Mall = "კავეა თბილისი მოლი",
-EastPoint = "კავეა ისთ ფოინთი",
-CityMall = "კავეა სითი მოლი"
-}
+
