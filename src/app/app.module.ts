@@ -8,17 +8,15 @@ import { ContentModule } from './content/content.module';
 import { ShellModule } from './shell/shell.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     TooltipModule.forRoot(),
     ShellModule,
     AppRoutingModule,
-    ContentModule
+    ContentModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
