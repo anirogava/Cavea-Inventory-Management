@@ -4,14 +4,18 @@ import { RouterModule } from '@angular/router';
 import { AddComponent } from './add/add.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    BrowserModule,
+    CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  declarations: [AddComponent, ListComponent]
+  declarations: [AddComponent, ListComponent],
+  providers: [],
 })
-export class ContentModule { }
+export class ContentModule {}

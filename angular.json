@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Inventory-Management:build:production",
+            "firebaseProject": "inventory-management-803e9",
+            "firebaseHostingSite": "inventory-management-803e9"
+          }
         }
       }
     }

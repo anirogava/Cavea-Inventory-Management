@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Adress } from '../content.model';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from '@angular/fire/compat/firestore';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { Adress, inventory } from '../content.model';
 import { CustomValidator } from '../custom.validator';
 
 @Component({
@@ -10,13 +14,13 @@ import { CustomValidator } from '../custom.validator';
 })
 export class AddComponent implements OnInit {
   adress = Adress;
-  formData = [];
-
   form: FormGroup = new FormGroup({});
 
   submitted = false;
 
-  constructor(private fb: FormBuilder) {
+  private formValue: AngularFirestoreCollection<any> | undefined;
+
+  constructor(private fb: FormBuilder, private fireStore: AngularFirestore) {
     {
       this.form = fb.group({
         number: ['', [CustomValidator.numeric]],
@@ -27,28 +31,24 @@ export class AddComponent implements OnInit {
   private buildForm() {
     this.form = this.fb.group({
       name: [''],
-      Adress: Adress.null,
-      number: [''],
+      Adress: Adress.Choose,
+      number: [],
     });
+  }
+  submit(value: inventory) {
+    this.formValue
+      ?.add(value)
+      .then((res) => {
+        console.log('წარმატებით გაიგზავნა');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    this.submitted = true;
   }
 
   ngOnInit() {
+    this.formValue = this.fireStore.collection('inventory');
     this.buildForm();
-  }
-
-  // onSubmit() {
-  //   const currentData = JSON.stringify(localStorage.getItem('formdata'));
-  //   localStorage.setItem(
-  //     'formdata',
-  //     JSON.stringify(JSON.parse(currentData).concat(this.form.valueChanges))
-  //   );
-  // }
-  onSubmit() {
-    const currentData = JSON.stringify(localStorage.getItem('formdata'));
-    const jsonData = JSON.stringify(this.form.value);
-    localStorage.setItem(
-      'formdata',
-      JSON.stringify(JSON.parse(currentData).concat(this.form.valueChanges))
-    );
   }
 }

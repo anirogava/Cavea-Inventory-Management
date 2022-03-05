@@ -1,4 +1,6 @@
-<button type="button" class="btn btn-primary" [routerLink]="['/add']">დამატება</button>
+<button type="button" class="btn btn-primary" [routerLink]="['/add']">
+  დამატება
+</button>
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -9,15 +11,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row"></th>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
+    <ng-container *ngFor="let item of ">
+      <tr>
+        <th scope="row"></th>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </ng-container>
   </tbody>
 </table>
-<button type="button" class="btn btn-primary button2" [routerLink]="['/add']">დამატება</button>
-
-
-
+<button type="button" class="btn btn-primary button2" [routerLink]="['/add']">
+  დამატება
+</button>
