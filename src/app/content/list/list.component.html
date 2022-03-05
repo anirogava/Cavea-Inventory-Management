@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" [routerLink]="['/add']">
+<button type="button" class="btn btn-primary button1" [routerLink]="['/add']">
   დამატება
 </button>
 <table class="table">
@@ -10,13 +10,21 @@
       <th scope="col">ოპერაციები</th>
     </tr>
   </thead>
-  <tbody>
-    <ng-container *ngFor="let item of ">
+  <tbody *ngFor="let inventory of inventoryList">
+    <ng-container>
       <tr>
-        <th scope="row"></th>
-        <td></td>
-        <td></td>
-        <td></td>
+        <th>{{ inventory.name }}</th>
+        <td>{{ inventory.Adress }}</td>
+        <td>{{ inventory.number }}</td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-danger"
+            (click)="deleteInventory(inventory)"
+          >
+            Danger
+          </button>
+        </td>
       </tr>
     </ng-container>
   </tbody>

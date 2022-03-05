@@ -18,7 +18,7 @@ export class AddComponent implements OnInit {
 
   submitted = false;
 
-  private formValue: AngularFirestoreCollection<any> | undefined;
+  private formValue: AngularFirestoreCollection<inventory> | undefined;
 
   constructor(private fb: FormBuilder, private fireStore: AngularFirestore) {
     {

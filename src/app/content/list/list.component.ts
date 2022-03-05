@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { inventory } from '../content.model';
+import { inventoryResult } from '../content.model';
+import { FireStoreService } from '../fire-store.service';
 
 @Component({
   selector: 'app-list',
@@ -7,15 +8,30 @@ import { inventory } from '../content.model';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  inventoryList: inventoryResult[] = [];
+  id: string = '';
+  adress: string = '';
+  name: string = '';
+  price: string = '';
+  constructor(private fireService: FireStoreService) {}
 
-  constructor() {}
-
-  getFormData() {
-
-
+  getAlldata() {
+    this.fireService.getData().subscribe(
+      (res) => {
+        this.inventoryList = res.map((e: any) => {
+          const data = e.payload.doc.data();
+          data.id = e.payload.doc.id;
+          return data;
+        });
+      }
+    );
+  }
+  deleteInventory(inventory: inventoryResult) {
+    this.fireService.deleteData(inventory);
   }
 
   ngOnInit() {
-   
+    this.getAlldata();
+
   }
 }

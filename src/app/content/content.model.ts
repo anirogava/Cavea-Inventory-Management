@@ -12,3 +12,9 @@ export interface inventory {
   name: string;
   price: number;
 }
+export interface inventoryResult {
+  id: string;
+  Adress: string;
+  name: string;
+  number: number;
+}
