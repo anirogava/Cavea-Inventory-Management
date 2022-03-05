@@ -23,6 +23,7 @@
           type="text"
           placeholder=""
           formControlName="name"
+         
         />
       </div>
       <label for="status" class="col-sm-2 col-form-label label"
@@ -44,6 +45,28 @@
       >
         დამატება
       </button>
+      <ng-container *ngIf="submitted && form.invalid">
+        <div
+          class="alert alert-danger mt-2"
+          role="alert"
+          *ngIf="form.controls['name']?.errors?.['required']"
+        >
+          ველის შევსება სავალდებულოა
+        </div>
+        <div
+          class="alert alert-danger mt-2"
+          role="alert"
+          *ngIf="form.controls['number']?.errors?.['required']"
+        >
+          ფასის შეყვანა სავალდებულოა
+        </div>
+        <div
+          class="alert alert-danger mt-2"
+          role="alert"
+          *ngIf="form.controls['Adress']?.errors?.['required']"
+        >გთხოვთ აირჩიოთ ადგილმდებარეობა
+        </div>
+      </ng-container>
     </form>
   </div>
 </main>

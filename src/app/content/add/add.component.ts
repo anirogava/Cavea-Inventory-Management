@@ -3,7 +3,7 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
-import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Adress, inventory } from '../content.model';
 import { CustomValidator } from '../custom.validator';
 
@@ -30,12 +30,25 @@ export class AddComponent implements OnInit {
 
   private buildForm() {
     this.form = this.fb.group({
-      name: [''],
-      Adress: Adress.Choose,
-      number: [],
+      name: ['', Validators.required],
+      Adress: [Adress.Choose, Validators.required],
+      number: ['', Validators.required],
     });
   }
+  private formReset() {
+    this.form.reset();
+    this.form.updateValueAndValidity();
+
+    this.submitted = false;
+
+    this.form.get('name')?.setValue('');
+    this.form.get('price')?.setValue('');
+    this.form.get('Adress')?.setValue('');
+  }
   submit(value: inventory) {
+    if (this.form.invalid) {
+      return;
+    }
     this.formValue
       ?.add(value)
       .then((res) => {
@@ -45,6 +58,7 @@ export class AddComponent implements OnInit {
         console.log(err);
       });
     this.submitted = true;
+    this.formReset();
   }
 
   ngOnInit() {

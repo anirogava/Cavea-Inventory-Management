@@ -21,8 +21,6 @@ import { AngularFireModule } from '@angular/fire/compat';
     ShellModule,
     AppRoutingModule,
     ContentModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     AngularFireModule.initializeApp(environment.firebase),
