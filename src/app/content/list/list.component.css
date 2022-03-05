@@ -19,3 +19,11 @@
   );
   height: 100vh;
 }
+.card {
+  background-color: none;
+}
+.card-body{
+  color: white !important;
+  font-size: 20px;
+  font-weight: 500;
+}

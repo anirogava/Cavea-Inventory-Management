@@ -34,6 +34,13 @@
       </ng-container>
     </tbody>
   </table>
+  <ng-container>
+    <div class="">
+      <div class="card-body" *ngIf="!inventoryList.length">
+        {{ emptySting }}
+      </div>
+    </div>
+  </ng-container>
   <button
     type="button"
     class="btn btn-outline-info button2"
