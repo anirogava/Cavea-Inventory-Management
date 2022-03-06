@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { inventoryResult } from '../content.model';
+import { Adress, inventoryResult } from '../content.model';
 import { FireStoreService } from '../fire-store.service';
+
+
 
 const EMPTY = 'სია ცარიელია.';
 
@@ -12,10 +14,13 @@ const EMPTY = 'სია ცარიელია.';
 export class ListComponent implements OnInit {
   inventoryList: inventoryResult[] = [];
   id: string = '';
+  adress = Adress;
 
   get emptySting(): string {
     return EMPTY;
   }
+
+ 
   constructor(private fireService: FireStoreService) {}
 
   getAlldata() {

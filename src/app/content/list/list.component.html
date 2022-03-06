@@ -6,6 +6,18 @@
   >
     დამატება
   </button>
+  <div>
+    <div class="col-auto">
+      <select [(ngModel)]="adress" name="adress" class="form-select">
+        <option selected [ngValue]="null">ფილტრი</option>
+        <option [ngValue]="adress.Main">მთავარი ოფისი</option>
+        <option [ngValue]="adress.Gallery">კავეა გალერია</option>
+        <option [ngValue]="adress.Mall">კავეა თბილისი მოლი</option>
+        <option [ngValue]="adress.EastPoint">კავეა ისთ ფოინთი</option>
+        <option [ngValue]="adress.CityMall">კავეა სითი მოლი</option>
+      </select>
+    </div>
+  </div>
   <table class="table">
     <thead class="thead-light">
       <tr>
