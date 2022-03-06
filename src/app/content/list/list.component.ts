@@ -19,8 +19,6 @@ export class ListComponent implements OnInit {
   get emptySting(): string {
     return EMPTY;
   }
-
- 
   constructor(private fireService: FireStoreService) {}
 
   getAlldata() {
